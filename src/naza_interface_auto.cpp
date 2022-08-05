@@ -102,7 +102,7 @@ void naza_interface_auto_c::auto_landing(ConfigFile &cf, PCA9685 &pca9685, naza_
 void naza_interface_auto_c::turn_to_deg(ConfigFile &cf, PCA9685 &pca9685, naza_interface_manual_c naza, double deg, int* live_heading){
   naza.fly_turn_right(cf, pca9685, 20);
   while(1){
-    if(inRange(deg-10,deg+10, (uint)live_heading)){
+    if(inRange(deg-10,deg+10, (int*)live_heading)){
       naza.fly_turn_right(cf, pca9685, 0);
       break;
     }
